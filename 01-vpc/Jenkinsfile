@@ -11,5 +11,16 @@ pipeline{
                 '''
             }
         }
+        stage('Plan')
+        {
+            steps{
+                sh '''
+                 ls -ltr
+                 pwd
+                 cd /home/centos/workspace/terraform-jenkins-pipeline/01-vpc
+                 terraform plan
+                '''
+            }
+        }
     }
 }
