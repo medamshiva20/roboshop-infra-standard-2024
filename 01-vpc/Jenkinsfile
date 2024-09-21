@@ -7,7 +7,7 @@ pipeline{
                 ls -ltr
                 pwd
                 cd /home/centos/workspace/terraform-jenkins-pipeline/01-vpc
-                terrraform init 
+                terraform init 
                 '''
             }
         }
