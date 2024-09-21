@@ -18,7 +18,24 @@ pipeline{
                  ls -ltr
                  pwd
                  cd /home/centos/workspace/terraform-jenkins-pipeline/01-vpc
-                 terraform plan
+                 terraform plan -lock=false
+                '''
+            }
+        }
+        stage('Approval')
+        {
+            steps{
+                input "Shall I approve?"
+            }
+        }
+        stage('Apply')
+        {
+            steps{
+                sh '''
+                  ls -ltr
+                  pwd
+                  cd /home/centos/workspace/terraform-jenkins-pipeline/01-vpc
+                  terraform apply -auto-approve
                 '''
             }
         }
